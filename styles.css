@@ -507,9 +507,9 @@ header {
     width: 56px;
     height: 56px;
     object-fit: contain;
-    /* Force logos to render as white/monochrome regardless of source colors. */
-    /* This works for most SVG/PNG logos; if a logo has a transparent background it will appear white. */
-    filter: brightness(0) invert(1) saturate(0) contrast(1);
+    /* Show logos in their original artwork so accents (black parts) remain visible. */
+    /* Previously we forced all logos to white via CSS filter; that removed accents. */
+    filter: none;
     opacity: 0.98;
     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
