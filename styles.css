@@ -77,6 +77,15 @@ body {
     gap: 1rem;
 }
 
+/* visually hidden (accessible) */
+.sr-only {
+    position: absolute !important;
+    height: 1px; width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
 .nav-profile-pic {
     width: 40px;
     height: 40px;
@@ -528,6 +537,37 @@ header {
 @media (max-width: 768px) {
     .logo-track { animation-duration: 36s; gap: 1.5rem; }
     .tech-logo { width: 44px; height: 44px; }
+}
+
+/* About section banner (subtle, large, spans the section) */
+.about-banner-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 120%;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0.08;
+}
+.about-name-banner {
+    font-family: 'Rostex', 'Rajdhani', sans-serif;
+    font-size: 6rem;
+    color: var(--white);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    animation: slide 60s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .about-banner-container { opacity: 0.06; }
+    .about-name-banner { font-size: 2.2rem; animation-duration: 90s; }
 }
 
 .back-button:hover {
