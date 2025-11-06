@@ -507,9 +507,11 @@ header {
     width: 56px;
     height: 56px;
     object-fit: contain;
-    filter: grayscale(0%) brightness(1);
-    opacity: 0.95;
-    transition: transform 0.25s ease, opacity 0.25s ease;
+    /* Force logos to render as white/monochrome regardless of source colors. */
+    /* This works for most SVG/PNG logos; if a logo has a transparent background it will appear white. */
+    filter: brightness(0) invert(1) saturate(0) contrast(1);
+    opacity: 0.98;
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
 .tech-logo:hover {
