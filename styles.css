@@ -52,13 +52,26 @@ body {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 95%;
     max-width: 1200px;
     z-index: 1000;
     border-radius: 50px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s ease;
+}
+
+/* Extra small screens - phone */
+@media (max-width: 480px) {
+    .custom-navbar {
+        width: 98%;
+        top: 10px;
+        border-radius: 20px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 0.85rem;
+    }
 }
 
 .custom-navbar .navbar-brand {
@@ -151,6 +164,20 @@ header {
     justify-content: center;
     position: relative;
     overflow: visible;
+}
+
+@media (max-width: 768px) {
+    header {
+        min-height: 550px;
+        padding: 5rem 1rem 3rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        min-height: 400px;
+        padding: 4rem 1rem 2rem 1rem;
+    }
 }
 
 /* Banner container for name text */
@@ -247,6 +274,22 @@ header {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .about-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
 .about-section .container {
     position: relative;
     z-index: 2;
@@ -310,6 +353,20 @@ header {
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .skill-card {
+        min-height: 350px;
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card {
+        min-height: 300px;
+        padding: 1rem;
+    }
 }
 
 .skill-card:hover {
@@ -533,6 +590,22 @@ header {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
 .projects-section .container {
     position: relative;
     z-index: 2;
@@ -623,6 +696,22 @@ header {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
 }
 
 .testimonials-section h2 {
@@ -746,6 +835,22 @@ header {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
 .contact-section .container {
     position: relative;
     z-index: 2;
@@ -776,6 +881,18 @@ header {
     padding: 2.5rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 1rem;
+    }
 }
 
 .contact-form .form-label {
@@ -939,6 +1056,22 @@ header {
     margin: 3rem 2rem;
     border-radius: 30px;
     min-height: 400px;
+}
+
+@media (max-width: 768px) {
+    .project-detail-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-detail-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
 }
 
 .project-detail-container {
@@ -1124,6 +1257,19 @@ footer.footer {
     padding: 3rem 2rem;
     color: var(--silver);
     margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    footer.footer {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer.footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
 }
 
 .footer-copyright {
