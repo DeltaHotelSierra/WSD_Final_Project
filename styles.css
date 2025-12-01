@@ -382,6 +382,23 @@ header {
     gap: 1rem;
 }
 
+/* Taller variant for cards that need extra vertical space */
+.skill-card.skill-card--tall {
+    min-height: 560px;
+}
+
+@media (max-width: 768px) {
+    .skill-card.skill-card--tall {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card.skill-card--tall {
+        min-height: 340px;
+    }
+}
+
 @media (max-width: 768px) {
     .skill-card {
         min-height: 350px;
