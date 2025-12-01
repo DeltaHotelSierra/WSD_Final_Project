@@ -1,8 +1,8 @@
 /* ============================================
-   CUSTOM FONTS & COLOR VARIABLES
+   1. FONTS & VARIABLES
    ============================================ */
 
-/* Rostex Font */
+/* Custom Rostex Font */
 @font-face {
     font-family: 'Rostex';
     src: url('assets/fonts/rostex/Rostex-Regular.otf') format('opentype'),
@@ -10,20 +10,21 @@
     font-weight: normal;
     font-style: normal;
 }
- 
-/* Color palette variables: dark grey background, silver neutrals, red accent, black & white */
+
+/* Color Palette */
 :root {
-    --bg: #121214;            /* very dark grey page background */
-    --card-bg: #1f1f21;       /* slightly lighter card background */
-    --silver: #c0c0c0;       /* main silver tone for text */
-    --muted-silver: #9e9e9e; /* secondary silver */
-    --accent: #e03a3a;       /* red accent */
+    --bg: #121214;            /* Dark grey page background */
+    --card-bg: #1f1f21;       /* Slightly lighter card background */
+    --silver: #c0c0c0;        /* Main silver text */
+    --muted-silver: #9e9e9e;  /* Secondary silver */
+    --accent: #e03a3a;        /* Red accent */
     --black: #000000;
     --white: #ffffff;
 }
 
+
 /* ============================================
-   BASE STYLES & RESET
+   2. BASE STYLES
    ============================================ */
 
 * {
@@ -39,11 +40,11 @@ body {
     color: var(--silver);
 }
 
+
 /* ============================================
-   NAVIGATION BAR
+   3. NAVIGATION
    ============================================ */
 
-/* Bootstrap Navbar Customization */
 .custom-navbar {
     background-color: rgba(20, 20, 20, 0.55) !important;
     backdrop-filter: blur(20px) saturate(140%);
@@ -59,19 +60,6 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s ease;
-}
-
-/* Extra small screens - phone */
-@media (max-width: 480px) {
-    .custom-navbar {
-        width: 98%;
-        top: 10px;
-        border-radius: 20px;
-    }
-
-    .custom-navbar .navbar-brand {
-        font-size: 0.85rem;
-    }
 }
 
 .custom-navbar .navbar-brand {
@@ -119,7 +107,7 @@ body {
     border: 1px solid var(--muted-silver);
 }
 
-/* Mobile Responsive Navbar */
+/* Navigation - Tablet & Mobile */
 @media (max-width: 991px) {
     .custom-navbar {
         width: 95%;
@@ -153,7 +141,24 @@ body {
     }
 }
 
-/* Header Section */
+/* Navigation - Phone */
+@media (max-width: 480px) {
+    .custom-navbar {
+        width: 98%;
+        top: 10px;
+        border-radius: 20px;
+    }
+
+    .custom-navbar .navbar-brand {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* ============================================
+   4. HEADER
+   ============================================ */
+
 header {
     background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.6));
     color: var(--white);
@@ -166,21 +171,7 @@ header {
     overflow: visible;
 }
 
-@media (max-width: 768px) {
-    header {
-        min-height: 550px;
-        padding: 5rem 1rem 3rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        min-height: 400px;
-        padding: 4rem 1rem 2rem 1rem;
-    }
-}
-
-/* Banner container for name text */
+/* Banner Container */
 .banner-container {
     position: absolute;
     display: flex;
@@ -192,19 +183,7 @@ header {
     padding: 0 2rem;
 }
 
-@media (max-width: 768px) {
-    .banner-container {
-        padding: 0 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .banner-container {
-        padding: 0 1rem;
-    }
-}
-
-/* Hero name banner with responsive typography */
+/* Hero Name Banner - Responsive Typography */
 .name-banner {
     font-weight: normal;
     font-family: 'Rostex', 'Rajdhani', sans-serif;
@@ -218,31 +197,7 @@ header {
     line-height: 1.2;
 }
 
-@media (max-width: 768px) {
-    .name-banner {
-        font-size: clamp(1.5rem, 6vw, 4rem);
-        max-width: 95%;
-    }
-}
-
-@media (max-width: 480px) {
-    .name-banner {
-        font-size: clamp(1rem, 5vw, 2.5rem);
-        max-width: 100%;
-        letter-spacing: 0.1em;
-    }
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* Header info positioned at bottom left */
+/* Header Info (Bottom Left) */
 .header-info {
     position: absolute;
     bottom: 2rem;
@@ -260,7 +215,7 @@ header {
     padding: 0;
 }
 
-/* Profile image positioned at bottom center */
+/* Profile Image (Bottom Center) */
 .profile-image {
     position: absolute;
     z-index: 2;
@@ -284,11 +239,50 @@ header {
     border-radius: 50%;
 }
 
+/* Header - Tablet */
+@media (max-width: 768px) {
+    header {
+        min-height: 550px;
+        padding: 5rem 1rem 3rem 1rem;
+    }
+
+    .banner-container {
+        padding: 0 1.5rem;
+    }
+
+    .name-banner {
+        font-size: clamp(1.5rem, 6vw, 4rem);
+        max-width: 95%;
+    }
+
+    .profile-image {
+        width: 60%;
+    }
+}
+
+/* Header - Phone */
+@media (max-width: 480px) {
+    header {
+        min-height: 400px;
+        padding: 4rem 1rem 2rem 1rem;
+    }
+
+    .banner-container {
+        padding: 0 1rem;
+    }
+
+    .name-banner {
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        max-width: 100%;
+        letter-spacing: 0.1em;
+    }
+}
+
+
 /* ============================================
-   ABOUT SECTION
+   5. ABOUT SECTION
    ============================================ */
 
-/* About Section */
 .about-section {
     background-color: black;
     color: white;
@@ -299,22 +293,6 @@ header {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .about-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-section {
-        padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
-    }
 }
 
 .about-section .container {
@@ -341,11 +319,65 @@ header {
     font-weight: 400;
 }
 
+/* About Banner (Subtle Background Text) */
+.about-banner-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 120%;
+    pointer-events: none;
+    z-index: 1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0.08;
+}
+
+.about-name-banner {
+    font-family: 'Rostex', 'Rajdhani', sans-serif;
+    font-size: 6rem;
+    color: var(--white);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    animation: slide 60s linear infinite;
+}
+
+/* About Section - Tablet */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+
+    .about-banner-container {
+        opacity: 0.06;
+    }
+
+    .about-name-banner {
+        font-size: 2.2rem;
+        animation-duration: 90s;
+    }
+}
+
+/* About Section - Phone */
+@media (max-width: 480px) {
+    .about-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
+
 /* ============================================
-   TECHNICAL SKILLS SECTION
+   6. SKILLS SECTION
    ============================================ */
 
-/* Skills Section */
 .skills-container {
     margin-top: 3rem;
     padding: 2rem;
@@ -365,7 +397,7 @@ header {
     margin-bottom: 2rem;
 }
 
-/* Individual Skill Cards */
+/* Skill Cards */
 .skill-card {
     background-color: rgba(31, 31, 33, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -382,20 +414,6 @@ header {
     gap: 1rem;
 }
 
-@media (max-width: 768px) {
-    .skill-card {
-        min-height: 350px;
-        padding: 1.5rem 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .skill-card {
-        min-height: 300px;
-        padding: 1rem;
-    }
-}
-
 .skill-card:hover {
     border-color: var(--accent);
     background-color: rgba(31, 31, 33, 1);
@@ -403,7 +421,7 @@ header {
     box-shadow: 0 10px 30px rgba(224, 58, 58, 0.2);
 }
 
-/* Avoid hover lift causing overlap on multi-row layouts */
+/* Disable hover lift on smaller screens to prevent overlap */
 @media (max-width: 992px) {
     .skill-card:hover {
         transform: none;
@@ -425,7 +443,6 @@ header {
     transition: filter 0.3s ease;
 }
 
-/* Make GitHub and Kali icons white */
 .skill-icon-img.white-icon {
     filter: brightness(0) invert(1);
 }
@@ -434,9 +451,10 @@ header {
     filter: brightness(1.1);
 }
 
+/* Multi-Icon Display (HTML/CSS/JS Card) */
 .skill-multi-icons {
     display: flex;
-    gap: 1rem; /* fix typo */
+    gap: 1rem;
     align-items: center;
     justify-content: center;
 }
@@ -460,6 +478,7 @@ header {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
+/* Skill Progress Bars */
 .skill-card-progress {
     width: 100%;
     display: flex;
@@ -478,34 +497,13 @@ header {
     font-family: 'Orbitron', sans-serif;
 }
 
-.skill-row {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.skill-row label {
-    font-size: 0.75rem;
-    color: #b0b0b0;
-    font-weight: 500;
-    text-align: left;
-}
-
-.skill-row .progress {
-    width: 100%;
-}
-
-.multi-skill {
-    gap: 0.75rem;
-}
-
-/* Multi-skill progress */
+/* Multi-Skill Progress (HTML/CSS/JS Card) */
 .multi-skill {
     gap: 1rem;
 }
 
 .skill-row {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
@@ -519,6 +517,10 @@ header {
     font-family: 'Orbitron', sans-serif;
 }
 
+.skill-row .progress {
+    width: 100%;
+}
+
 .skill-percentage-small {
     font-size: 0.75rem;
     color: var(--accent);
@@ -527,6 +529,7 @@ header {
     font-family: 'Orbitron', sans-serif;
 }
 
+/* Progress Bar Base */
 .progress {
     background-color: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
@@ -546,6 +549,7 @@ header {
     min-width: 1%;
 }
 
+/* Skill Badges */
 .badge {
     font-size: 0.85rem;
     font-weight: 600;
@@ -608,11 +612,27 @@ header {
     font-family: 'Orbitron', sans-serif;
 }
 
+/* Skills - Tablet */
+@media (max-width: 768px) {
+    .skill-card {
+        min-height: 350px;
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Skills - Phone */
+@media (max-width: 480px) {
+    .skill-card {
+        min-height: 300px;
+        padding: 1rem;
+    }
+}
+
+
 /* ============================================
-   PROJECTS SECTION
+   7. PROJECTS SECTION
    ============================================ */
 
-/* Projects Section */
 .projects-section {
     background-color: white;
     color: black;
@@ -624,22 +644,6 @@ header {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .projects-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-section {
-        padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
-    }
 }
 
 .projects-section .container {
@@ -718,11 +722,51 @@ header {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
+/* Project Link Button */
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--silver);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    z-index: 1;
+}
+
+.project-card-link:hover .project-link {
+    background-color: rgba(224,58,58,0.08);
+    color: var(--white);
+    transform: translateX(5px);
+    border-color: var(--accent);
+}
+
+/* Projects - Tablet */
+@media (max-width: 768px) {
+    .projects-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+/* Projects - Phone */
+@media (max-width: 480px) {
+    .projects-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
+
 /* ============================================
-   TESTIMONIALS SECTION
+   8. TESTIMONIALS SECTION
    ============================================ */
 
-/* Testimonials Section */
 .testimonials-section {
     background-color: black;
     color: white;
@@ -732,22 +776,6 @@ header {
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .testimonials-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonials-section {
-        padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
-    }
 }
 
 .testimonials-section h2 {
@@ -764,7 +792,7 @@ header {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-/* Individual Testimonial Cards */
+/* Testimonial Cards */
 .testimonial-card {
     background-color: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -776,21 +804,6 @@ header {
     flex-direction: column;
     justify-content: center;
     transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .testimonial-card {
-        padding: 2.5rem 1.25rem;
-        height: 320px;
-    }
-}
-
-@media (max-width: 480px) {
-    .testimonial-card {
-        padding: 2rem 1rem;
-        height: 300px;
-        min-height: 280px;
-    }
 }
 
 .testimonial-card:hover {
@@ -837,7 +850,7 @@ header {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Bootstrap Carousel Customization */
+/* Carousel Customization */
 .carousel-indicators [data-bs-target] {
     background-color: var(--muted-silver);
     width: 12px;
@@ -869,37 +882,67 @@ header {
     opacity: 1;
 }
 
+/* Testimonials - Tablet */
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+
+    .testimonials-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-card {
+        padding: 2.5rem 1.25rem;
+        height: 320px;
+    }
+
+    .testimonial-text p {
+        font-size: 1rem;
+    }
+
+    .testimonial-author h5 {
+        font-size: 1.1rem;
+    }
+
+    .carousel-indicators {
+        bottom: -40px;
+    }
+}
+
+/* Testimonials - Phone */
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+
+    .testimonial-card {
+        padding: 2rem 1rem;
+        height: 300px;
+        min-height: 280px;
+    }
+}
+
+
 /* ============================================
-   CONTACT SECTION & FORM
+   9. CONTACT SECTION
    ============================================ */
 
-/* Contact Section */
 .contact-section {
     background-color: black;
     color: white;
     padding: 4rem 2rem;
-    margin: 3rem 2rem 3rem 2rem;
+    margin: 3rem 2rem;
     border-radius: 30px;
     min-height: 300px;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-section {
-        padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
-    }
 }
 
 .contact-section .container {
@@ -926,24 +969,12 @@ header {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-/* Form Fields */
+/* Contact Form */
 .contact-form {
     background-color: rgba(255, 255, 255, 0.03);
     padding: 2.5rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-    .contact-form {
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-form {
-        padding: 1rem;
-    }
 }
 
 .contact-form .form-label {
@@ -1029,7 +1060,7 @@ header {
     text-decoration: underline;
 }
 
-/* Form Message Alert */
+/* Form Alerts */
 .alert {
     border-radius: 8px;
     font-family: 'Orbitron', sans-serif;
@@ -1048,58 +1079,106 @@ header {
     color: var(--accent) !important;
 }
 
-/* Responsive Design */
+/* Contact - Tablet */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
+    .contact-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* Contact - Phone */
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+
+    .contact-form {
         padding: 1rem;
-        border-radius: 30px;
-    }
-    
-    .nav-menu {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-    }
-    
-    .name-banner {
-        font-size: 3rem;
-    }
-    
-    .profile-image {
-        width: 60%;
-    }
-    
-    header {
-        min-height: 400px;
-        padding: 4rem 2rem;
     }
 }
 
-/* Project Links */
-.project-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: transparent;
+
+/* ============================================
+   10. FOOTER
+   ============================================ */
+
+footer.footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 2rem;
     color: var(--silver);
-    text-decoration: none;
-    border-radius: 5px;
+    margin-top: 4rem;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: var(--muted-silver);
+}
+
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.06);
-    position: relative;
-    z-index: 1;
+    text-decoration: none;
 }
 
-.project-card-link:hover .project-link {
-    background-color: rgba(224,58,58,0.08);
-    color: var(--white);
-    transform: translateX(5px);
+.social-link:hover {
+    background-color: rgba(224, 58, 58, 0.15);
     border-color: var(--accent);
+    transform: translateY(-3px);
 }
 
-/* Project Detail Pages */
+.social-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+/* Footer - Tablet */
+@media (max-width: 768px) {
+    footer.footer {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Footer - Phone */
+@media (max-width: 480px) {
+    footer.footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+}
+
+
+/* ============================================
+   11. PROJECT DETAIL PAGES
+   ============================================ */
+
 .project-detail-section {
     background-color: black;
     color: white;
@@ -1107,22 +1186,6 @@ header {
     margin: 3rem 2rem;
     border-radius: 30px;
     min-height: 400px;
-}
-
-@media (max-width: 768px) {
-    .project-detail-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-detail-section {
-        padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
-    }
 }
 
 .project-detail-container {
@@ -1175,6 +1238,7 @@ header {
     margin-bottom: 0.5rem;
 }
 
+/* Back Button */
 .back-button {
     display: inline-block;
     margin-top: 2rem;
@@ -1187,7 +1251,37 @@ header {
     border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* Logo loop (About section) */
+.back-button:hover {
+    background-color: rgba(224,58,58,0.08);
+    color: var(--white);
+    transform: translateX(-5px);
+    border-color: var(--accent);
+}
+
+/* Project Detail - Tablet */
+@media (max-width: 768px) {
+    .project-detail-section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 1rem;
+        border-radius: 20px;
+    }
+}
+
+/* Project Detail - Phone */
+@media (max-width: 480px) {
+    .project-detail-section {
+        padding: 1.5rem 1rem;
+        margin: 1.5rem 0.5rem;
+        border-radius: 15px;
+    }
+}
+
+
+/* ============================================
+   12. UTILITIES & ANIMATIONS
+   ============================================ */
+
+/* Logo Loop Animation (About Section) */
 .logo-loop {
     margin-top: 2rem;
     width: 100%;
@@ -1208,8 +1302,6 @@ header {
     width: 56px;
     height: 56px;
     object-fit: contain;
-    /* Show logos in their original artwork so accents (black parts) remain visible. */
-    /* Previously we forced all logos to white via CSS filter; that removed accents. */
     filter: none;
     opacity: 0.98;
     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
@@ -1220,158 +1312,37 @@ header {
     opacity: 1;
 }
 
+/* Keyframe Animations */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
 @keyframes scroll-logos {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* make the loop slower on small screens */
+/* Logo Loop - Tablet */
 @media (max-width: 768px) {
-    .logo-track { animation-duration: 36s; gap: 1.5rem; }
-    .tech-logo { width: 44px; height: 44px; }
-
-    /* Testimonials responsive */
-    .testimonials-section {
-        margin: 2rem 1rem;
-        padding: 2rem 1rem;
+    .logo-track {
+        animation-duration: 36s;
+        gap: 1.5rem;
     }
 
-    .testimonials-section h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .testimonial-card {
-        padding: 2rem 1rem;
-        height: auto;
-        min-height: 250px;
-    }
-
-    .testimonial-text p {
-        font-size: 1rem;
-    }
-
-    .testimonial-author h5 {
-        font-size: 1.1rem;
-    }
-
-    .carousel-indicators {
-        bottom: -40px;
+    .tech-logo {
+        width: 44px;
+        height: 44px;
     }
 }
 
-/* About section banner (subtle, large, spans the section) */
-.about-banner-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    width: 120%;
-    pointer-events: none;
-    z-index: 1;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    opacity: 0.08;
-}
-.about-name-banner {
-    font-family: 'Rostex', 'Rajdhani', sans-serif;
-    font-size: 6rem;
-    color: var(--white);
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    animation: slide 60s linear infinite;
-}
-
-@media (max-width: 768px) {
-    .about-banner-container { opacity: 0.06; }
-    .about-name-banner { font-size: 2.2rem; animation-duration: 90s; }
-}
-
-.back-button:hover {
-    background-color: rgba(224,58,58,0.08);
-    color: var(--white);
-    transform: translateX(-5px);
-    border-color: var(--accent);
-}
 
 /* ============================================
-   FOOTER
+   13. ULTRA-SMALL SCREENS (386px and below)
    ============================================ */
 
-/* Footer */
-footer.footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 3rem 2rem;
-    color: var(--silver);
-    margin-top: 4rem;
-}
-
-@media (max-width: 768px) {
-    footer.footer {
-        padding: 2rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    footer.footer {
-        padding: 1.5rem 1rem;
-        margin-top: 2rem;
-    }
-}
-
-.footer-copyright {
-    font-size: 0.9rem;
-    margin: 0;
-    font-family: 'Trebuchet MS', sans-serif;
-    color: var(--muted-silver);
-}
-
-/* Social Media Links */
-.social-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.social-link:hover {
-    background-color: rgba(224, 58, 58, 0.15);
-    border-color: var(--accent);
-    transform: translateY(-3px);
-}
-
-.social-icon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-}
-
-/* ============================================
-   RESPONSIVE DESIGN & MEDIA QUERIES
-   ============================================ */
-
-/* Ultra-small screens (386px and below) */
 @media (max-width: 386px) {
-    /* Navbar adjustments */
+    /* Navbar */
     .navbar {
         width: 98%;
         margin: 0.5rem auto;
@@ -1387,7 +1358,7 @@ footer.footer {
         font-size: 0.85rem;
     }
 
-    /* Header adjustments */
+    /* Header */
     header {
         min-height: 350px;
         padding: 3rem 0.5rem 1.5rem 0.5rem;
@@ -1399,7 +1370,7 @@ footer.footer {
         max-width: 100%;
     }
 
-    /* Section headings */
+    /* Section Headings */
     .about-section h2,
     .projects-section h2,
     .testimonials-section h2,
@@ -1417,14 +1388,14 @@ footer.footer {
         font-size: 1.25rem;
     }
 
-    /* About section paragraphs */
+    /* About Section */
     .about-section p {
         font-size: 1rem;
         line-height: 1.5;
         margin-bottom: 1rem;
     }
 
-    /* Project content headings */
+    /* Project Content */
     .project-content h2 {
         font-size: 1.5rem;
         margin-bottom: 0.75rem;
@@ -1435,12 +1406,11 @@ footer.footer {
         margin-bottom: 0.75rem;
     }
 
-    /* Contact form heading */
     .contact-form h3 {
         font-size: 1.5rem;
     }
 
-    /* Section containers */
+    /* Section Containers */
     .about-section,
     .projects-section,
     .testimonials-section,
@@ -1449,7 +1419,7 @@ footer.footer {
         padding: 1.25rem 0.75rem;
     }
 
-    /* Skill cards */
+    /* Skill Cards */
     .skill-card {
         padding: 1.5rem 0.5rem;
         min-height: 280px;
@@ -1459,7 +1429,7 @@ footer.footer {
         font-size: 0.95rem;
     }
 
-    /* Testimonial cards */
+    /* Testimonial Cards */
     .testimonial-card {
         padding: 1.5rem 0.75rem;
         height: 280px;
@@ -1475,7 +1445,7 @@ footer.footer {
         font-size: 0.95rem;
     }
 
-    /* Contact form */
+    /* Contact Form */
     .contact-form {
         padding: 1rem;
     }
@@ -1500,7 +1470,7 @@ footer.footer {
         height: 20px;
     }
 
-    /* Project detail sections */
+    /* Project Detail */
     .project-detail-section {
         margin: 1rem 0.25rem;
         padding: 1.25rem 0.75rem;
@@ -1511,7 +1481,6 @@ footer.footer {
         padding: 1rem !important;
     }
 
-    /* Back button */
     .back-button {
         font-size: 0.9rem;
         padding: 0.5rem 1rem !important;
