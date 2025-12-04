@@ -1,5 +1,83 @@
 document.addEventListener('DOMContentLoaded', function() {
     // ============================================
+    // CV Modal/Popup
+    // ============================================
+    
+    const cvBtn = document.getElementById('viewCvBtn');
+    const cvModal = document.getElementById('cvModal');
+    const cvClose = document.querySelector('.cv-close');
+    const cvFrame = document.getElementById('cvFrame');
+
+    if (cvBtn && cvModal) {
+        // Open CV modal
+        cvBtn.addEventListener('click', function() {
+            cvFrame.src = '/Daniel_Santos_Final_Project/assets/cv/Daniel Santos CV.png';
+            cvModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        // Close CV modal
+        if (cvClose) {
+            cvClose.addEventListener('click', function() {
+                cvModal.style.display = 'none';
+                cvFrame.src = ''; // Clear iframe
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            });
+        }
+
+        // Close modal when clicking outside
+        cvModal.addEventListener('click', function(e) {
+            if (e.target === cvModal) {
+                cvModal.style.display = 'none';
+                cvFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && cvModal.style.display === 'block') {
+                cvModal.style.display = 'none';
+                cvFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // ============================================
+    // Theme Toggle
+    // ============================================
+    
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.remove('light-mode');
+        if (themeToggle) themeToggle.checked = true;
+    } else {
+        // Default to light mode (unchecked = light)
+        body.classList.add('light-mode');
+        if (themeToggle) themeToggle.checked = false;
+    }
+
+    // Handle theme toggle
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Checked shows moon = dark mode
+                body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Unchecked shows sun = light mode
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    // ============================================
     // Navbar Collapse on Link Click
     // ============================================
     
@@ -88,6 +166,24 @@ document.addEventListener('DOMContentLoaded', function() {
             formMessage.className = 'alert alert-' + type;
             formMessage.style.display = 'block';
             formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    // ============================================
+    // Fix Testimonials Section Padding
+    // ============================================
+    
+    const testimonialsSection = document.querySelector('.testimonials-section');
+    if (testimonialsSection) {
+        // Get navbar height
+        const navbar = document.querySelector('.custom-navbar');
+        if (navbar) {
+            const navbarHeight = navbar.offsetHeight;
+            const topPosition = navbar.offsetTop;
+            const totalNavbarSpace = navbarHeight + topPosition + 40; // Add extra 40px buffer
+            
+            // Force the padding-top
+            testimonialsSection.style.paddingTop = totalNavbarSpace + 'px';
         }
     }
 });

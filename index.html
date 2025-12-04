@@ -20,20 +20,20 @@
     />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="/Daniel_Santos_Bootstrap/styles.css" />
+    <link rel="stylesheet" href="/Daniel_Santos_Final_Project/styles.css?v=3" />
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/Daniel_Santos_Bootstrap/script.js" defer></script>
+    <script src="/Daniel_Santos_Final_Project/script.js?v=2" defer></script>
   </head>
 
-  <body>
+  <body class="light-mode">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
           <img
-            src="/Daniel_Santos_Bootstrap/assets/png/profile.png"
+            src="/Daniel_Santos_Final_Project/assets/png/profile.png"
             alt="Daniel Santos profile picture in navigation bar"
             class="nav-profile-pic rounded-circle img-fluid"
             width="40"
@@ -71,6 +71,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
+            <li class="nav-item">
+              <label class="switch">
+                <input type="checkbox" id="themeToggle" />
+                <span class="slider"></span>
+              </label>
+            </li>
           </ul>
         </div>
       </div>
@@ -83,12 +89,45 @@
       </div>
       <div class="profile-image">
         <img
-          src="/Daniel_Santos_Bootstrap/assets/png/profile.png"
+          src="/Daniel_Santos_Final_Project/assets/png/profile.png"
           alt="Daniel Santos profile picture headshot"
-          class="img-fluid rounded-circle shadow"
+          class="img-fluid"
         />
       </div>
+      <!-- CV Button -->
+      <div class="cv-button-container">
+        <button class="animated-button" id="viewCvBtn">
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+          <span class="text">View CV</span>
+          <span class="circle"></span>
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+        </button>
+      </div>
     </header>
+
+    <!-- CV Modal/Popup -->
+    <div id="cvModal" class="cv-modal">
+      <div class="cv-modal-content">
+        <span class="cv-close">&times;</span>
+        <img id="cvFrame" src="" alt="Daniel Santos CV" />
+      </div>
+    </div>
 
     <!-- Main Content -->
     <main>
@@ -99,7 +138,7 @@
             <div class="col-12">
               <h2 class="text-center mb-5">About Me</h2>
               <p class="text-center mb-4 lh-lg">
-                👋 I'm an aspiring cybersecurity student with a military
+                I'm an aspiring cybersecurity student with a military
                 background and a passion for coding, ethical hacking, and
                 digital defense.
               </p>
@@ -118,17 +157,24 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Technical Skills -->
-          <div class="skills-container mt-5">
-            <h3 class="skills-title mb-5">Technical Skills</h3>
-            <div class="row g-4 justify-content-center align-items-stretch">
+      <!-- Technical Skills Section -->
+      <section class="skills-section shadow-lg rounded mt-5 mb-5" id="skills">
+        <div class="container p-4 p-md-5">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="display-4 mb-4">Technical Skills</h2>
+            </div>
+          </div>
+          <div class="row g-4 justify-content-center align-items-stretch">
               <!-- Python Skill Card -->
               <div class="col-lg-3 col-md-6 mb-3">
                 <div class="skill-card shadow rounded-lg p-4 mb-3 h-100">
                   <div class="skill-card-icon mb-3">
                     <img
-                      src="/Daniel_Santos_Bootstrap/assets/svg/python.svg"
+                      src="/Daniel_Santos_Final_Project/assets/svg/python.svg"
                       alt="Python programming language logo"
                       class="skill-icon-img img-fluid"
                     />
@@ -158,17 +204,17 @@
                   <div class="skill-card-icon mb-3">
                     <div class="skill-multi-icons">
                       <img
-                        src="/Daniel_Santos_Bootstrap/assets/svg/html.svg"
+                        src="/Daniel_Santos_Final_Project/assets/svg/html.svg"
                         alt="HTML5 markup language logo"
                         class="skill-icon-small"
                       />
                       <img
-                        src="/Daniel_Santos_Bootstrap/assets/svg/javascript.svg"
+                        src="/Daniel_Santos_Final_Project/assets/svg/javascript.svg"
                         alt="JavaScript programming language logo"
                         class="skill-icon-small"
                       />
                       <img
-                        src="/Daniel_Santos_Bootstrap/assets/svg/css.svg"
+                        src="/Daniel_Santos_Final_Project/assets/svg/css.svg"
                         alt="CSS3 styling language logo"
                         class="skill-icon-small"
                       />
@@ -229,7 +275,7 @@
                 <div class="skill-card shadow rounded-lg p-4 mb-3 h-100">
                   <div class="skill-card-icon mb-3">
                     <img
-                      src="/Daniel_Santos_Bootstrap/assets/svg/github.svg"
+                      src="/Daniel_Santos_Final_Project/assets/svg/github.svg"
                       alt="GitHub version control platform logo"
                       class="skill-icon-img white-icon"
                     />
@@ -258,7 +304,7 @@
                 <div class="skill-card shadow rounded-lg p-4 mb-3 h-100">
                   <div class="skill-card-icon mb-3">
                     <img
-                      src="/Daniel_Santos_Bootstrap/assets/svg/kali.svg"
+                      src="/Daniel_Santos_Final_Project/assets/svg/kali.svg"
                       alt="Kali Linux penetration testing operating system logo"
                       class="skill-icon-img white-icon"
                     />
@@ -295,7 +341,7 @@
           <div class="row mb-5">
             <div class="col-12 text-center">
               <h2 class="display-4 mb-4">Projects</h2>
-              <p class="lead text-muted fs-5">
+              <p class="lead fs-5">
                 Here are some of the exciting projects I've worked on. Each one
                 represents a unique challenge and an opportunity to create
                 something meaningful.
@@ -306,7 +352,7 @@
             <!-- Leadership Experience Project -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
               <a
-                href="/Daniel_Santos_Bootstrap/leadership-experience.html"
+                href="/Daniel_Santos_Final_Project/leadership-experience.html"
                 class="project-card-link d-block h-100 text-decoration-none"
               >
                 <div class="project-card h-100 shadow rounded-lg p-5">
@@ -325,7 +371,7 @@
             <!-- Kali Linux Learning Project -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
               <a
-                href="/Daniel_Santos_Bootstrap/kali-linux-learning.html"
+                href="/Daniel_Santos_Final_Project/kali-linux-learning.html"
                 class="project-card-link d-block h-100 text-decoration-none"
               >
                 <div class="project-card h-100 shadow rounded-lg p-5">
@@ -344,10 +390,7 @@
         </div>
       </section>
 
-      <section
-        class="testimonials-section shadow-lg rounded mt-5 mb-5"
-        id="testimonials"
-      >
+      <section class="testimonials-section" id="testimonials">
         <div class="container p-4 p-md-5">
           <div class="row mb-5">
             <div class="col-12 text-center">
@@ -399,7 +442,7 @@
                       </div>
                       <div class="testimonial-author text-center">
                         <h5 class="fw-bold mb-2">Jane Doe</h5>
-                        <p class="testimonial-role text-muted small">
+                        <p class="testimonial-role small">
                           Cybersecurity Mentor
                         </p>
                       </div>
@@ -419,9 +462,7 @@
                       </div>
                       <div class="testimonial-author text-center">
                         <h5 class="fw-bold mb-2">John Smith</h5>
-                        <p class="testimonial-role text-muted small">
-                          Project Lead
-                        </p>
+                        <p class="testimonial-role small">Project Lead</p>
                       </div>
                     </div>
                   </div>
@@ -438,9 +479,7 @@
                       </div>
                       <div class="testimonial-author text-center">
                         <h5 class="fw-bold mb-2">Sarah Johnson</h5>
-                        <p class="testimonial-role text-muted small">
-                          Technical Director
-                        </p>
+                        <p class="testimonial-role small">Technical Director</p>
                       </div>
                     </div>
                   </div>
@@ -569,26 +608,6 @@
                   style="display: none"
                 ></div>
               </form>
-
-              <!-- Contact Information -->
-              <div class="contact-info mt-5 pt-4 border-top border-secondary">
-                <div class="row text-center">
-                  <div class="col-md-6 mb-3 mb-md-0 p-3">
-                    <h6 class="text-uppercase fw-bold mb-3">Email</h6>
-                    <p>
-                      <a
-                        href="mailto:daniel.santos@example.com"
-                        class="contact-link text-decoration-none"
-                        >DannyH.Santos@Hotmail.com</a
-                      >
-                    </p>
-                  </div>
-                  <div class="col-md-6 mb-3 mb-md-0 p-3">
-                    <h6 class="text-uppercase fw-bold mb-3">Location</h6>
-                    <p class="contact-link">Finland</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -619,7 +638,7 @@
                 title="GitHub"
               >
                 <img
-                  src="/Daniel_Santos_Bootstrap/assets/svg/github.svg"
+                  src="/Daniel_Santos_Final_Project/assets/svg/github.svg"
                   alt="Visit Daniel Santos on GitHub"
                   class="social-icon img-fluid"
                 />
@@ -632,7 +651,7 @@
                 title="Instagram"
               >
                 <img
-                  src="/Daniel_Santos_Bootstrap/assets/svg/instagram.svg"
+                  src="/Daniel_Santos_Final_Project/assets/svg/instagram.svg"
                   alt="Visit Daniel Santos on Instagram"
                   class="social-icon img-fluid"
                 />
@@ -645,7 +664,7 @@
                 title="LinkedIn"
               >
                 <img
-                  src="/Daniel_Santos_Bootstrap/assets/svg/linkedin.svg"
+                  src="/Daniel_Santos_Final_Project/assets/svg/linkedin.svg"
                   alt="Visit Daniel Santos on LinkedIn"
                   class="social-icon img-fluid"
                 />

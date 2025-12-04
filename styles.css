@@ -22,6 +22,16 @@
     --white: #ffffff;
 }
 
+/* Light Mode Colors */
+body.light-mode {
+    --bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --silver: #333333;
+    --muted-silver: #666666;
+    --black: #ffffff;
+    --white: #000000;
+}
+
 
 /* ============================================
    2. BASE STYLES
@@ -33,11 +43,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Trebuchet MS', sans-serif;
     line-height: 1.6;
     background-color: var(--bg);
     color: var(--silver);
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -163,12 +182,15 @@ header {
     background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.6));
     color: var(--white);
     padding: 6rem 2rem 4rem 2rem;
-    min-height: 700px;
+    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     position: relative;
     overflow: visible;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* Banner Container */
@@ -176,7 +198,7 @@ header {
     position: absolute;
     display: flex;
     z-index: 1;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     width: 100%;
     justify-content: center;
@@ -215,6 +237,194 @@ header {
     padding: 0;
 }
 
+/* CV Button (Bottom Left) */
+.cv-button-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 3;
+}
+
+/* CV Button Styling */
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 28px;
+  border: 3px solid;
+  border-color: transparent;
+  font-size: 14px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: 'Rostex', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 20px;
+  fill: var(--accent);
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: var(--white);
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: var(--white);
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px var(--accent);
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+/* Light mode adjustments for CV button */
+body.light-mode .animated-button {
+  color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+body.light-mode .animated-button svg {
+  fill: var(--accent);
+}
+
+body.light-mode .animated-button:hover {
+  color: var(--black);
+}
+
+body.light-mode .animated-button:hover svg {
+  fill: var(--black);
+}
+
+/* CV Modal */
+.cv-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cv-modal-content {
+  position: relative;
+  margin: 2% auto;
+  width: 90%;
+  max-width: 900px;
+  max-height: 95%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+  padding: 20px;
+}
+
+.cv-close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.7);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.cv-close:hover,
+.cv-close:focus {
+  background-color: var(--accent);
+  transform: rotate(90deg);
+}
+
+#cvFrame {
+  border: none;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  pointer-events: none;
+}
+
 /* Profile Image (Bottom Center) */
 .profile-image {
     position: absolute;
@@ -236,7 +446,6 @@ header {
     object-fit: contain;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
     display: block;
-    border-radius: 50%;
 }
 
 /* Header - Tablet */
@@ -258,6 +467,22 @@ header {
     .profile-image {
         width: 60%;
     }
+
+    .cv-button-container {
+        bottom: 1.5rem;
+        left: 1.5rem;
+    }
+
+    .animated-button {
+        font-size: 14px;
+        padding: 12px 28px;
+    }
+
+    .cv-modal-content {
+        width: 95%;
+        height: 85%;
+        margin: 5% auto;
+    }
 }
 
 /* Header - Phone */
@@ -276,6 +501,35 @@ header {
         max-width: 100%;
         letter-spacing: 0.1em;
     }
+
+    .cv-button-container {
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    .animated-button {
+        font-size: 12px;
+        padding: 10px 24px;
+        letter-spacing: 1px;
+    }
+
+    .animated-button svg {
+        width: 18px;
+    }
+
+    .cv-modal-content {
+        width: 98%;
+        height: 90%;
+        margin: 5% auto;
+    }
+
+    .cv-close {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        right: 15px;
+        top: 5px;
+    }
 }
 
 
@@ -287,17 +541,23 @@ header {
     background-color: black;
     color: white;
     padding: 4rem 2rem;
-    margin: 3rem 2rem;
-    border-radius: 30px;
-    min-height: 400px;
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     transition: all 0.3s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: block;
 }
 
 .about-section .container {
     position: relative;
     z-index: 2;
+    padding-top: 2rem;
 }
 
 .about-section h2 {
@@ -350,8 +610,8 @@ header {
 @media (max-width: 768px) {
     .about-section {
         padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
+        margin: 0;
+        border-radius: 0;
     }
 
     .about-banner-container {
@@ -368,8 +628,8 @@ header {
 @media (max-width: 480px) {
     .about-section {
         padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
+        margin: 0;
+        border-radius: 0;
     }
 }
 
@@ -377,6 +637,38 @@ header {
 /* ============================================
    6. SKILLS SECTION
    ============================================ */
+
+.skills-section {
+    background-color: black;
+    color: white;
+    padding: 4rem 2rem;
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    height: 100vh;
+    position: relative;
+    overflow: auto;
+    transition: all 0.3s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.skills-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+    font-family: 'Rostex', sans-serif;
+}
 
 .skills-container {
     margin-top: 3rem;
@@ -588,29 +880,6 @@ header {
     border: 1px solid var(--muted-silver);
 }
 
-/* Soft Skills */
-.soft-skill-item {
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.soft-skill-item:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: var(--accent);
-    transform: translateY(-3px);
-}
-
-.soft-skill-description {
-    margin: 0.75rem 0 0 0;
-    font-size: 0.9rem;
-    color: rgba(192, 192, 192, 0.9);
-    line-height: 1.5;
-    font-family: 'Orbitron', sans-serif;
-}
 
 /* Skills - Tablet */
 @media (max-width: 768px) {
@@ -634,16 +903,22 @@ header {
    ============================================ */
 
 .projects-section {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     padding: 4rem 2rem;
-    margin: 3rem 2rem;
-    border-radius: 30px;
-    border: 2px solid #e0e0e0;
-    min-height: 400px;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    min-height: 100vh;
+    height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     transition: all 0.3s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .projects-section .container {
@@ -656,6 +931,7 @@ header {
     margin-bottom: 2rem;
     text-align: center;
     font-family: 'Rostex', sans-serif;
+
 }
 
 .projects-section .lead {
@@ -678,9 +954,10 @@ header {
 
 .project-card {
     padding: 2rem;
-    background-color: black;
+    background-color: rgba(31, 31, 33, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    border-radius: 20px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -700,8 +977,10 @@ header {
 }
 
 .project-card-link:hover .project-card {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+    background-color: rgba(31, 31, 33, 1);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(224, 58, 58, 0.2);
 }
 
 .project-card h3 {
@@ -748,8 +1027,8 @@ header {
 @media (max-width: 768px) {
     .projects-section {
         padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
+        margin: 0;
+        border-radius: 0;
     }
 }
 
@@ -757,8 +1036,8 @@ header {
 @media (max-width: 480px) {
     .projects-section {
         padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
+        margin: 0;
+        border-radius: 0;
     }
 }
 
@@ -771,16 +1050,30 @@ header {
     background-color: black;
     color: white;
     padding: 4rem 2rem;
-    margin: 3rem 2rem;
-    border-radius: 30px;
+    margin: 0;
+    border-radius: 0;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     transition: all 0.3s ease;
+    min-height: 100vh;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: block;
+    box-sizing: border-box;
+}
+
+.testimonials-section .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 2rem;
 }
 
 .testimonials-section h2 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    margin-top: 0;
+    padding-top: 0;
     text-align: center;
     font-family: 'Rostex', sans-serif;
 }
@@ -794,13 +1087,12 @@ header {
 
 /* Testimonial Cards */
 .testimonial-card {
-    background-color: var(--card-bg);
+    background-color: rgba(31, 31, 33, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 3rem 1.5rem;
     text-align: center;
-    min-height: 350px;
-    height: auto;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -810,6 +1102,8 @@ header {
 
 .testimonial-card:hover {
     border-color: var(--accent);
+    background-color: rgba(31, 31, 33, 1);
+    transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(224, 58, 58, 0.2);
 }
 
@@ -893,8 +1187,9 @@ header {
 @media (max-width: 768px) {
     .testimonials-section {
         padding: 2rem 1rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
+        padding-top: 10rem !important;
+        margin: 0;
+        border-radius: 0;
     }
 
     .testimonials-section h2 {
@@ -904,8 +1199,7 @@ header {
 
     .testimonial-card {
         padding: 2rem 1.25rem;
-        min-height: 320px;
-        height: auto;
+        height: 400px;
     }
 
     .testimonial-text p {
@@ -926,14 +1220,14 @@ header {
 @media (max-width: 480px) {
     .testimonials-section {
         padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
+        padding-top: 10rem !important;
+        margin: 0;
+        border-radius: 0;
     }
 
     .testimonial-card {
         padding: 1.5rem 1rem;
-        min-height: 280px;
-        height: auto;
+        height: 350px;
     }
 
     .testimonial-text p {
@@ -956,17 +1250,24 @@ header {
     background-color: black;
     color: white;
     padding: 4rem 2rem;
-    margin: 3rem 2rem;
-    border-radius: 30px;
-    min-height: 300px;
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     transition: all 0.3s ease;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .contact-section .container {
     position: relative;
     z-index: 2;
+    padding-top: 2rem;
 }
 
 .contact-section h2 {
@@ -990,10 +1291,17 @@ header {
 
 /* Contact Form */
 .contact-form {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(31, 31, 33, 0.8);
     padding: 2.5rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+    border-color: var(--accent);
+    background-color: rgba(31, 31, 33, 1);
+    box-shadow: 0 10px 30px rgba(224, 58, 58, 0.2);
 }
 
 .contact-form .form-label {
@@ -1102,8 +1410,8 @@ header {
 @media (max-width: 768px) {
     .contact-section {
         padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
+        margin: 0;
+        border-radius: 0;
     }
 
     .contact-form {
@@ -1115,8 +1423,8 @@ header {
 @media (max-width: 480px) {
     .contact-section {
         padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
+        margin: 0;
+        border-radius: 0;
     }
 
     .contact-form {
@@ -1134,7 +1442,14 @@ footer.footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 3rem 2rem;
     color: var(--silver);
-    margin-top: 4rem;
+    margin-top: 0;
+    min-height: 100vh;
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-copyright {
@@ -1297,7 +1612,186 @@ footer.footer {
 
 
 /* ============================================
-   12. UTILITIES & ANIMATIONS
+   12. THEME TOGGLE SWITCH
+   ============================================ */
+
+/* The switch - the box around the slider */
+.switch {
+  display: block;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2em;
+  /* size of sliding icon -- sun and moon */
+  --size-of-icon: 1.4em;
+  /* it is like a inline-padding of switch */
+  --slider-offset: 0.3em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon,1.4em);
+  width: var(--size-of-icon,1.4em);
+  border-radius: 20px;
+  left: var(--slider-offset,0.3em);
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #303136;
+}
+
+input:checked + .slider:before {
+  left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+  background: #303136;
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+}
+
+/* Align switch in navbar */
+.navbar-nav .nav-item .switch {
+  margin-left: 1rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav .nav-item .switch {
+    margin: 0.5rem auto;
+  }
+}
+
+/* Light Mode Adjustments */
+body.light-mode .custom-navbar {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .custom-navbar .navbar-brand {
+  color: var(--white) !important;
+}
+
+body.light-mode .custom-navbar .nav-link {
+  color: #333333 !important;
+}
+
+body.light-mode .custom-navbar .nav-link:hover {
+  background-color: rgba(224, 58, 58, 0.1);
+  color: #000000 !important;
+}
+
+body.light-mode header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.8));
+}
+
+body.light-mode .name-banner {
+  color: #333333;
+}
+
+body.light-mode .about-section,
+body.light-mode .skills-section,
+body.light-mode .projects-section,
+body.light-mode .testimonials-section,
+body.light-mode .contact-section,
+body.light-mode .project-detail-section {
+  background-color: #faf9f6;
+  color: #000000;
+  border: none;
+}
+
+body.light-mode .skill-card,
+body.light-mode .project-card,
+body.light-mode .testimonial-card,
+body.light-mode .contact-form {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  color: #000000;
+}
+
+body.light-mode .skill-card:hover,
+body.light-mode .project-card:hover,
+body.light-mode .testimonial-card:hover,
+body.light-mode .contact-form:hover {
+  background-color: #ffffff;
+  border-color: var(--accent);
+}
+
+body.light-mode .skill-card-title,
+body.light-mode .project-card h3,
+body.light-mode .testimonial-author h5,
+body.light-mode h2,
+body.light-mode h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .project-card p,
+body.light-mode .testimonial-text p {
+  color: #333333 !important;
+}
+
+body.light-mode .form-control-custom {
+  background-color: #ffffff !important;
+  border: 1px solid #d0d0d0 !important;
+  color: #000000 !important;
+}
+
+body.light-mode .form-control-custom::placeholder {
+  color: #999999 !important;
+}
+
+body.light-mode footer.footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+}
+
+body.light-mode .social-link {
+  background-color: #e8e8e8;
+  border: 1px solid #d0d0d0;
+}
+
+body.light-mode .social-icon {
+  filter: brightness(0);
+}
+
+body.light-mode .skill-icon-img.white-icon {
+  filter: brightness(0);
+}
+
+/* ============================================
+   13. UTILITIES & ANIMATIONS
    ============================================ */
 
 /* Logo Loop Animation (About Section) */
