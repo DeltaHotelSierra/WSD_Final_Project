@@ -635,6 +635,13 @@ body.light-mode .cv-button:hover:before {
     text-align: left;
 }
 
+/* Align socials heading with education heading on desktop */
+@media (min-width: 992px) {
+    .socials-section.socials-align-education {
+        margin-top: calc(1.5rem + 1.5rem + 3rem + 3rem);
+    }
+}
+
 .socials-section h3.subsection-heading {
     font-size: 1.5rem;
     font-family: 'Rostex', sans-serif;
