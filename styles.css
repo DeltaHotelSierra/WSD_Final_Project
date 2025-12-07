@@ -1863,7 +1863,12 @@ body.light-mode .back-to-top-btn {
     padding: 4rem 2rem;
     margin: 3rem 2rem;
     border-radius: 30px;
-    min-height: 400px;
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-detail-container {
@@ -1940,8 +1945,9 @@ body.light-mode .back-to-top-btn {
 @media (max-width: 768px) {
     .project-detail-section {
         padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-        border-radius: 20px;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
     }
 }
 
@@ -1949,8 +1955,13 @@ body.light-mode .back-to-top-btn {
 @media (max-width: 480px) {
     .project-detail-section {
         padding: 1.5rem 1rem;
-        margin: 1.5rem 0.5rem;
-        border-radius: 15px;
+        padding-top: 10rem !important;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
