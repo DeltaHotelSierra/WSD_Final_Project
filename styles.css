@@ -368,8 +368,8 @@ header {
   text-transform: uppercase;
   outline: 0;
   border: 0;
-  padding: 1rem 1rem 1rem 0;
-  margin-top: 2rem;
+  padding: 0 1rem 1rem 0;
+  margin: 0;
 }
 
 .cv-button:before {
@@ -520,8 +520,8 @@ body.light-mode .cv-button:hover:before {
 
     .cv-button {
         font-size: 0.9rem;
-        padding: 0.8rem 0.8rem 0.8rem 0;
-        margin-top: 1.5rem;
+        padding: 0 0.8rem 0.8rem 0;
+        margin: 0;
     }
 
     .cv-modal-content {
@@ -555,8 +555,8 @@ body.light-mode .cv-button:hover:before {
 
     .cv-button {
         font-size: 0.85rem;
-        padding: 0.6rem 0.6rem 0.6rem 0;
-        margin-top: 1rem;
+        padding: 0 0.6rem 0.6rem 0;
+        margin: 1rem 0 0 0;
     }
 
     .animated-button svg {
