@@ -360,114 +360,50 @@ header {
     z-index: 3;
 }
 
-/* CV Button Styling */
-.animated-button {
-  position: relative;
-  display: flex;
+/* CV Button Styling - Minimalist Design */
+.cv-button {
   align-items: center;
-  gap: 4px;
-  padding: 12px 28px;
-  border: 3px solid;
-  border-color: transparent;
-  font-size: 14px;
-  background-color: inherit;
-  border-radius: 100px;
-  font-weight: 600;
-  color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent);
+  background-color: transparent;
+  color: #fff;
   cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  font-family: 'Rostex', sans-serif;
+  display: flex;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
 }
 
-.animated-button svg {
-  position: absolute;
-  width: 20px;
-  fill: var(--accent);
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+.cv-button:before {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
 }
 
-.animated-button .arr-1 {
-  right: 16px;
-}
-
-.animated-button .arr-2 {
-  left: -25%;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: var(--white);
-  border-radius: 12px;
-}
-
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-  left: 16px;
-}
-
-.animated-button:hover .text {
-  transform: translateX(12px);
-}
-
-.animated-button:hover svg {
-  fill: var(--white);
-}
-
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px var(--accent);
-}
-
-.animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
+.cv-button:hover:before {
+  background-color: #fff;
+  width: 3rem;
 }
 
 /* Light mode adjustments for CV button */
-body.light-mode .animated-button {
-  color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent);
+body.light-mode .cv-button {
+  color: #000;
 }
 
-body.light-mode .animated-button svg {
-  fill: var(--accent);
+body.light-mode .cv-button:before {
+  background-color: #000;
 }
 
-body.light-mode .animated-button:hover {
-  color: var(--black);
-}
-
-body.light-mode .animated-button:hover svg {
-  fill: var(--black);
+body.light-mode .cv-button:hover:before {
+  background-color: #000;
 }
 
 /* CV Modal */
