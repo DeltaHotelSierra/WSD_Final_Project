@@ -361,15 +361,29 @@ header {
   cursor: pointer;
   display: flex;
   font-family: 'Rostex', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1.5;
   text-decoration: none;
   text-transform: uppercase;
   outline: 0;
   border: 0;
-  padding: 1rem 1rem 1rem 0;
-  margin-top: 2rem;
+  padding: 0;
+  margin-top: 8.5rem;
+}
+
+/* Align CV button with Education heading on desktop */
+@media (min-width: 992px) {
+  .cv-button {
+    margin-top: 8.5rem;
+  }
+}
+
+/* Mobile alignment */
+@media (max-width: 991px) {
+  .cv-button {
+    margin-top: 2rem;
+  }
 }
 
 .cv-button:before {
@@ -519,9 +533,7 @@ body.light-mode .cv-button:hover:before {
     }
 
     .cv-button {
-        font-size: 0.9rem;
-        padding: 0.8rem 0.8rem 0.8rem 0;
-        margin-top: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .cv-modal-content {
@@ -554,9 +566,7 @@ body.light-mode .cv-button:hover:before {
     }
 
     .cv-button {
-        font-size: 0.85rem;
-        padding: 0.6rem 0.6rem 0.6rem 0;
-        margin-top: 1rem;
+        font-size: 1.2rem;
     }
 
     .animated-button svg {
