@@ -1745,7 +1745,7 @@ footer.footer {
 .back-to-top-btn .clone > *,
 .back-to-top-btn .text > * {
   opacity: 1;
-  font-size: 1.3rem;
+  font-size: 0.9rem;
   transition: 0.2s;
   margin-left: 4px;
   font-family: 'Rostex', sans-serif;
