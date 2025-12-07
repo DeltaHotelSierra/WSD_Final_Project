@@ -353,13 +353,6 @@ header {
     z-index: 3;
 }
 
-.cv-button-container-about {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 3;
-}
-
 /* CV Button Styling - Minimalist Design */
 .cv-button {
   align-items: center;
@@ -367,7 +360,7 @@ header {
   color: #fff;
   cursor: pointer;
   display: flex;
-  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Rostex', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5;
@@ -375,7 +368,8 @@ header {
   text-transform: uppercase;
   outline: 0;
   border: 0;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
+  margin-top: 2rem;
 }
 
 .cv-button:before {
@@ -524,14 +518,10 @@ body.light-mode .cv-button:hover:before {
         left: 1.5rem;
     }
 
-    .cv-button-container-about {
-        bottom: 1.5rem;
-        right: 1.5rem;
-    }
-
-    .animated-button {
-        font-size: 14px;
-        padding: 12px 28px;
+    .cv-button {
+        font-size: 0.9rem;
+        padding: 0.8rem 0.8rem 0.8rem 0;
+        margin-top: 1.5rem;
     }
 
     .cv-modal-content {
@@ -563,15 +553,10 @@ body.light-mode .cv-button:hover:before {
         left: 1rem;
     }
 
-    .cv-button-container-about {
-        bottom: 1rem;
-        right: 1rem;
-    }
-
-    .animated-button {
-        font-size: 12px;
-        padding: 10px 24px;
-        letter-spacing: 1px;
+    .cv-button {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.6rem 0.6rem 0;
+        margin-top: 1rem;
     }
 
     .animated-button svg {
