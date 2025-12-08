@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Theme Toggle
     // ============================================
     
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggle = document.getElementById('input');
     const body = document.body;
 
     // Check for saved theme preference or default to light mode
