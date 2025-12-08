@@ -1,33 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--
-    Daniel Santos - Cybersecurity Portfolio
-    
-    ACCESSIBILITY FEATURES:
-    - WCAG 2.1 Level AA compliance
-    - Semantic HTML5 structure
-    - ARIA labels and roles for screen readers
-    - Skip to main content link for keyboard navigation
-    - Focus-visible states for all interactive elements
-    - Alt text for all images
-    - Form labels and autocomplete attributes
-    - Keyboard accessible navigation and modals
-    - Reduced motion support via prefers-reduced-motion
-    - High contrast mode support
-    - Responsive design for all devices
-    
-    COLOR PALETTE (Consistent Theme):
-    - Primary Accent: #e03a3a (Red)
-    - Dark Background: #121214
-    - Card Background: #1f1f21
-    - Light Background: #f5f5f5 (eggshell)
-    - Text Silver: #c0c0c0
-    
-    RESPONSIVE BREAKPOINTS:
-    - Mobile: max-width 480px
-    - Tablet: max-width 768px
-    - Desktop: 992px and above
-  -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -98,7 +70,7 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
+              <a class="nav-link" href="#projects">Experiences</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#testimonials">Testimonials</a>
@@ -129,6 +101,20 @@
           class="img-fluid"
         />
       </div>
+      <!-- From Uiverse.io by ArturCodeCraft --> 
+<div class="main__action">
+  <a class="main__scroll" href="#about">
+    <div class="main__scroll-box">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  	    <path d="M0 0h24v24H0z" fill="none"></path>
+  	    <path d="M11.9997 13.1716L7.04996     8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z" fill="rgba(28,28,30,1)">
+  	    </path>
+	  </svg>
+    </div>
+
+    <span class="main__scroll-text">Scroll</span>
+  </a>
+</div>
     </header>
 
     <!-- CV Modal/Popup -->
@@ -227,7 +213,7 @@
                       class="skill-icon-img img-fluid"
                     />
                   </div>
-                  <h5 class="skill-card-title text-center mb-3">Python</h5>
+                  <h3 class="skill-card-title text-center mb-3">Python</h3>
                   <div class="skill-card-progress">
                     <div class="progress">
                       <div
@@ -237,6 +223,7 @@
                         aria-valuenow="85"
                         aria-valuemin="0"
                         aria-valuemax="100"
+                        aria-label="Python proficiency: 85 percent"
                       ></div>
                     </div>
                     <span class="skill-percentage d-block text-center mt-2"
@@ -268,9 +255,9 @@
                       />
                     </div>
                   </div>
-                  <h5 class="skill-card-title text-center mb-3">
+                  <h3 class="skill-card-title text-center mb-3">
                     HTML, CSS & JS
-                  </h5>
+                  </h3>
                   <div class="skill-card-progress multi-skill">
                     <div class="skill-row">
                       <label class="fw-bold small">HTML</label>
@@ -282,6 +269,7 @@
                           aria-valuenow="90"
                           aria-valuemin="0"
                           aria-valuemax="100"
+                          aria-label="HTML proficiency: 90 percent"
                         ></div>
                       </div>
                       <span class="skill-percentage">90%</span>
@@ -292,10 +280,11 @@
                         <div
                           class="progress-bar"
                           role="progressbar"
-                          style="width: 90%"
-                          aria-valuenow="90"
+                          style="width: 85%"
+                          aria-valuenow="85"
                           aria-valuemin="0"
                           aria-valuemax="100"
+                          aria-label="CSS proficiency: 85 percent"
                         ></div>
                       </div>
                       <span class="skill-percentage">90%</span>
@@ -310,6 +299,7 @@
                           aria-valuenow="75"
                           aria-valuemin="0"
                           aria-valuemax="100"
+                          aria-label="JavaScript proficiency: 75 percent"
                         ></div>
                       </div>
                       <span class="skill-percentage">75%</span>
@@ -328,7 +318,7 @@
                       class="skill-icon-img white-icon"
                     />
                   </div>
-                  <h5 class="skill-card-title text-center mb-3">GitHub</h5>
+                  <h3 class="skill-card-title text-center mb-3">GitHub</h3>
                   <div class="skill-card-progress">
                     <div class="progress">
                       <div
@@ -338,6 +328,7 @@
                         aria-valuenow="80"
                         aria-valuemin="0"
                         aria-valuemax="100"
+                        aria-label="GitHub proficiency: 80 percent"
                       ></div>
                     </div>
                     <span class="skill-percentage d-block text-center mt-2"
@@ -357,7 +348,7 @@
                       class="skill-icon-img white-icon"
                     />
                   </div>
-                  <h5 class="skill-card-title text-center mb-3">Kali Linux</h5>
+                  <h3 class="skill-card-title text-center mb-3">Kali Linux</h3>
                   <div class="skill-card-progress">
                     <div class="progress">
                       <div
@@ -367,6 +358,7 @@
                         aria-valuenow="80"
                         aria-valuemin="0"
                         aria-valuemax="100"
+                        aria-label="Kali Linux proficiency: 80 percent"
                       ></div>
                     </div>
                     <span class="skill-percentage d-block text-center mt-2"
@@ -380,7 +372,7 @@
         </div>
       </section>
 
-      <!-- Projects Section -->
+      <!-- Experiences Section -->
       <section
         class="projects-section shadow-lg rounded mt-5 mb-5"
         id="projects"
@@ -388,9 +380,9 @@
         <div class="container p-4 p-md-5">
           <div class="row mb-5">
             <div class="col-12 text-center">
-              <h2 class="display-4 mb-4">Projects</h2>
+              <h2 class="display-4 mb-4">Experiences</h2>
               <p class="lead fs-5">
-                Here are some of the exciting projects I've worked on. Each one
+                Here are some of the exciting experiences I've had. Each one
                 represents a unique challenge and an opportunity to create
                 something meaningful.
               </p>
@@ -491,7 +483,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author text-center">
-                        <h5 class="fw-bold mb-2">Jane Doe</h5>
+                        <h3 class="fw-bold mb-2">Jane Doe</h3>
                         <p class="testimonial-role small">
                           Cybersecurity Mentor
                         </p>
@@ -511,7 +503,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author text-center">
-                        <h5 class="fw-bold mb-2">John Smith</h5>
+                        <h3 class="fw-bold mb-2">John Smith</h3>
                         <p class="testimonial-role small">Project Lead</p>
                       </div>
                     </div>
@@ -528,7 +520,7 @@
                         </p>
                       </div>
                       <div class="testimonial-author text-center">
-                        <h5 class="fw-bold mb-2">Sarah Johnson</h5>
+                        <h3 class="fw-bold mb-2">Sarah Johnson</h3>
                         <p class="testimonial-role small">Technical Director</p>
                       </div>
                     </div>

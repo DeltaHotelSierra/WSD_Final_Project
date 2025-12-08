@@ -327,6 +327,81 @@ header {
     line-height: 1.2;
 }
 
+/* Scroll Down Button - From Uiverse.io by ArturCodeCraft */
+.main__action {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.main__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main__scroll-box {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__scroll-box svg {
+  width: 100%;
+  height: 100%;
+}
+
+.main__scroll-text {
+  color: rgba(28, 28, 30, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.main__action:hover .main__scroll-box {
+  animation: scroll-down 3s infinite;
+}
+
+/* Animate scroll icon */
+@keyframes scroll-down {
+  0%,
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+
+  35% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+}
+
+/* Light mode adjustments for scroll button */
+body.light-mode .main__scroll-text {
+  color: rgba(28, 28, 30, 1);
+}
+
+body:not(.light-mode) .main__scroll-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body:not(.light-mode) .main__scroll-box svg path:last-child {
+  fill: rgba(255, 255, 255, 0.9);
+}
+
 /* Header Info (Bottom Left) */
 .header-info {
     position: absolute;
@@ -372,7 +447,6 @@ header {
   margin-top: 8.5rem;
 }
 
-/* Align CV button with Education heading on desktop */
 @media (min-width: 992px) {
   .cv-button {
     margin-top: 8.5rem;
