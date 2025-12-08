@@ -428,64 +428,93 @@ body:not(.light-mode) .main__scroll-box svg path:last-child {
     z-index: 3;
 }
 
-/* CV Button Styling - Minimalist Design */
-.cv-button {
-  align-items: center;
-  background-color: transparent;
-  color: #fff;
+/* CV Button Wrapper */
+.cv-button-wrapper {
+  background-color: #212121;
+  border: none;
   cursor: pointer;
-  display: flex;
-  font-family: 'Rostex', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.5;
-  text-decoration: none;
-  text-transform: uppercase;
-  outline: 0;
-  border: 0;
   padding: 0;
   margin-top: 8.5rem;
 }
 
 @media (min-width: 992px) {
-  .cv-button {
+  .cv-button-wrapper {
     margin-top: 8.5rem;
   }
 }
 
 /* Mobile alignment */
 @media (max-width: 991px) {
-  .cv-button {
+  .cv-button-wrapper {
     margin-top: 2rem;
   }
 }
 
-.cv-button:before {
-  background-color: #fff;
-  content: "";
+/* CV Button Link Styling */
+.cv-button-wrapper a {
+  position: relative;
   display: inline-block;
-  height: 1px;
-  margin-right: 10px;
-  transition: all .42s cubic-bezier(.25,.8,.25,1);
-  width: 0;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color: #fefefe;
+  text-decoration: none;
+  font-family: 'Rostex', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
-.cv-button:hover:before {
-  background-color: #fff;
-  width: 3rem;
+.cv-button-wrapper a::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background-color: #212121;
+  transition: 0.3s ease-in-out;
+  transform: scaleY(1);
+}
+
+.cv-button-wrapper a:hover::before {
+  transform: scaleY(0);
+}
+
+.cv-button-wrapper a::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background-color: #212121;
+  transition: 0.3s ease-in-out;
+  transform: scaleX(1);
+  transition-delay: 0.5s;
+}
+
+.cv-button-wrapper a:hover::after {
+  transform: scaleX(0);
+}
+
+.cv-button-wrapper a span {
+  position: relative;
+  z-index: 3;
 }
 
 /* Light mode adjustments for CV button */
-body.light-mode .cv-button {
+body.light-mode .cv-button-wrapper {
+  background-color: #f8f9fa;
+}
+
+body.light-mode .cv-button-wrapper a {
+  border-color: #000;
   color: #000;
 }
 
-body.light-mode .cv-button:before {
-  background-color: #000;
-}
-
-body.light-mode .cv-button:hover:before {
-  background-color: #000;
+body.light-mode .cv-button-wrapper a::before,
+body.light-mode .cv-button-wrapper a::after {
+  background-color: #f8f9fa;
 }
 
 /* CV Modal */
