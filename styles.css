@@ -1775,6 +1775,14 @@ footer.footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+footer.footer .back-to-top-btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .footer-copyright {
@@ -1792,13 +1800,9 @@ footer.footer {
   border: none;
   color: #fff;
   background: none;
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   padding-bottom: 2em;
   cursor: pointer;
-  z-index: 1000;
 }
 
 .back-to-top-btn > div,
