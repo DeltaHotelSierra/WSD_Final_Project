@@ -186,4 +186,82 @@ document.addEventListener('DOMContentLoaded', function() {
             testimonialsSection.style.paddingTop = totalNavbarSpace + 'px';
         }
     }
+
+    // ============================================
+    // Scroll Fade In Animation
+    // ============================================
+    
+    const observerOptions = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Check if this is a detail page (leadership or kali)
+                const isDetailPage = entry.target.classList.contains('project-detail-section');
+                
+                if (isDetailPage) {
+                    // Detail pages: animate individual elements top to bottom
+                    const allElements = Array.from(entry.target.querySelectorAll('h2, h3, h4, h5, h6, p, ul, .back-button, .lanyard-images'));
+                    
+                    const uniqueElements = [];
+                    const seen = new Set();
+                    
+                    allElements.forEach(el => {
+                        if (!seen.has(el)) {
+                            seen.add(el);
+                            uniqueElements.push(el);
+                        }
+                    });
+                    
+                    uniqueElements.forEach((element, index) => {
+                        element.classList.add('fade-in-up');
+                        element.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4');
+                        
+                        const delayIndex = Math.min(index % 8, 4);
+                        if (delayIndex > 0) {
+                            element.classList.add(`delay-${delayIndex}`);
+                        }
+                    });
+                } else {
+                    // Index page: animate headings first, then other content
+                    const headings = entry.target.querySelectorAll('h1, h2, h3, h4, h5, h6');
+                    const children = entry.target.querySelectorAll('.container > *, .row > *, .col-lg-6 > *, .skill-card, .project-card, .testimonial-card, .contact-form');
+                    
+                    headings.forEach((heading) => {
+                        heading.classList.add('fade-in-up');
+                        heading.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4');
+                    });
+                    
+                    let delayIndex = 0;
+                    children.forEach((child) => {
+                        if (!child.matches('h1, h2, h3, h4, h5, h6')) {
+                            child.classList.add('fade-in-up');
+                            child.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4');
+                            if (delayIndex < 4) {
+                                child.classList.add(`delay-${delayIndex + 1}`);
+                            }
+                            delayIndex++;
+                        }
+                    });
+                }
+            } else {
+                // Section is out of view - reset for next time
+                const allElements = entry.target.querySelectorAll('.fade-in-up');
+                allElements.forEach((element) => {
+                    element.classList.remove('fade-in-up');
+                    element.classList.remove('delay-1', 'delay-2', 'delay-3', 'delay-4');
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe all main sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
