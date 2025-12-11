@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (cvBtn && cvModal) {
         // Open CV modal
         cvBtn.addEventListener('click', function() {
-            cvFrame.src = '/Daniel_Santos_Final_Project/assets/cv/Daniel Santos CV.png';
+            cvFrame.src = '/WSD_Final_Project/assets/cv/Daniel Santos CV.png';
             cvModal.style.display = 'block';
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
         });
